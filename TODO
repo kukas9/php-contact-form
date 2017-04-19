@@ -1,0 +1,9 @@
+* tłumaczenia:
+	- założyc temat na otland z prośbą o tłumaczenie
+	- automatycznie oferowanie tłumaczenia w danym języku poprzez google.translate jeśli nie ma danego tłumaczenia jeszcze?
+* w mailu from: ma być ustawiane na adres kontaktowy domeny, a reply-to: na adres osoby która wypełniła formularz
+* szablony:
+	- dodać stopkę z poprzedniego szablonu
+	- zrobić nowy w jquery interface [?]
+* temat na otland uaktualnić:
+	- http://otland.net/f118/contact-form-unused-domains-88062/
