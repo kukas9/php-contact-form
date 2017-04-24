@@ -31,4 +31,7 @@ $config = array(
 	'clear_form_content' => true, // when message has been sent successfully, clear user fields or keep it filled?
 	'google_analytics_id' => '' // e.g.: UA-XXXXXXX-X
 );
+// specific site options
+$config['example.org']['gzip_output'] = false;
+$config['www.example.org']['gzip_output'] = false;
 ?>
