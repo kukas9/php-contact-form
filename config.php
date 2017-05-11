@@ -13,7 +13,7 @@ $config = array(
 
 	// reCAPTCHA (prevent spam bots)
 	'recaptcha_enabled' => false, // enable recaptcha verification code
-	'recaptcha_site_key' => '', // get your own public and private keys at http://recaptcha.net
+	'recaptcha_site_key' => '', // get your own public and private keys at https://www.google.com/recaptcha
 	'recaptcha_secret_key' => '',
 	'recaptcha_theme' => 'light', // light, dark
 

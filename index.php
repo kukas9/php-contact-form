@@ -45,9 +45,6 @@ else if(isset($config['www.' . $host]))
 	$config = array_merge($config, $config['www.' . $host]);
 
 require(INCLUDES . 'functions.php');
-if($config['recaptcha_enabled'])
-	require(INCLUDES . 'recaptcha/recaptchalib.php');
-
 // language
 if(!isset($_GET['lang']))
 {
@@ -123,20 +120,23 @@ if(isset($_POST['submit']))
 		$error = true;
 	}
 
-	if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response']))
+	if($config['recaptcha_enabled'])
 	{
-		$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$config['recaptcha_secret_key'].'&response='.$_POST['g-recaptcha-response']);
-        $responseData = json_decode($verifyResponse);
-        if(!$responseData->success)
+		if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response']))
+		{
+			$verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$config['recaptcha_secret_key'].'&response='.$_POST['g-recaptcha-response']);
+			$responseData = json_decode($verifyResponse);
+			if(!$responseData->success)
+			{
+				echo error_message($lang['error_recaptcha']);
+				$error = true;
+			}
+		}
+		else
 		{
 			echo error_message($lang['error_recaptcha']);
 			$error = true;
 		}
-	}
-	else
-	{
-		echo error_message($lang['error_recaptcha']);
-		$error = true;
 	}
 
 	if(!$error)
